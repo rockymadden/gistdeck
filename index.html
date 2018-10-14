@@ -134,9 +134,9 @@
       var pathname = window.location.pathname;
       var gistDefault = '/rockymadden/6ea26abb879e71a1dca0a0200e2546ea';
       var gist = pathname.split('/').length > 2 ? pathname : gistDefault;
-      var cache = '?cache=' + Math.random();
+      var cache = Math.random();
 
-      $.get('https://gist.githubusercontent.com' + gist + '/raw?' + cache, function (data) {
+      $.get('https://gist.githubusercontent.com' + gist + '/raw?cache=' + cache, function (data) {
         $('#source').html(data);
         remark.create(remarkConfig);
       });
