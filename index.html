@@ -2,8 +2,6 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="keywords" content="remark,remarkjs,markdown,slideshow,presentation,gist,github" />
-    <meta name="description" content="A simple, in-browser, markdown-driven slideshow on gist" />
     <title>Presenting</title>
     <style>
       @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
@@ -127,7 +125,7 @@ class: center, middle, inverse
 #[Gist => Deck](https://github.com/rockymadden/gistdeck)
 .footnote[powered by [remark.js](https://github.com/gnab/remark)]
 ---
-```
+```text
     present.rockymadden.com
                 v
 https://gist.github.com/rockymadden/8acfc555a718d62b77b2
@@ -155,22 +153,20 @@ https://present.rockymadden.com/rockymadden/8acfc555a718d62b77b2
         $.get('https://gist.githubusercontent.com' + path + "/raw", function (data) {
           $('#source').html(data)
           remark.create(remarkConfig);
-          $.getScript('https://oyanglul.us/gulugulu/public/main.min.js')
         });
       } else {
         remark.create(remarkConfig);
-        $.getScript('https://oyanglul.us/gulugulu/public/main.min.js')
       }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured"></script>
     <script>
-     MathJax.Hub.Config({
-         tex2jax: {
-             skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-             inlineMath: [['$','$'], ['\\(','\\)']]
-         }
-     });
-     MathJax.Hub.Configured();
+      MathJax.Hub.Config({
+        tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          inlineMath: [['$','$'], ['\\(','\\)']]
+        }
+      });
+      MathJax.Hub.Configured();
     </script>
   </body>
 </html>
