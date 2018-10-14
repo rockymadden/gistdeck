@@ -117,6 +117,7 @@
     </style>
   </head>
   <body>
+    <textarea id="source"></textarea>
     <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
     <script>
@@ -134,9 +135,9 @@
       var pathname = window.location.pathname;
       var gistDefault = '/rockymadden/6ea26abb879e71a1dca0a0200e2546ea';
       var gist = pathname.split('/').length > 2 ? pathname : gistDefault;
-      var cache = Math.random();
+      var random = Math.random();
 
-      $.get('https://gist.githubusercontent.com' + gist + '/raw?cache=' + cache, function (data) {
+      $.get('https://gist.githubusercontent.com' + gist + '/raw?random=' + random, function (data) {
         $('#source').html(data);
         remark.create(remarkConfig);
       });
