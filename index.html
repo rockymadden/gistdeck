@@ -117,23 +117,6 @@
     </style>
   </head>
   <body>
-    <textarea id="source">
-name: inverse
-layout: true
-class: center, middle, inverse
----
-#[Gist => Deck](https://github.com/rockymadden/gistdeck)
----
-layout: false
-```
-    present.rockymadden.com
-                v
-https://gist.github.com/rockymadden/8acfc555a718d62b77b2
-                |
-                V
-https://present.rockymadden.com/rockymadden/8acfc555a718d62b77b2
-```
-</textarea>
     <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
     <script>
@@ -148,17 +131,15 @@ https://present.rockymadden.com/rockymadden/8acfc555a718d62b77b2
       };
     </script>
     <script>
-      var path = window.location.pathname;
+      var pathname = window.location.pathname;
+      var gistDefault = '/rockymadden/6ea26abb879e71a1dca0a0200e2546ea';
+      var gist = pathname.split('/').length > 2 ? pathname : gistDefault;
       var bust = '?bust=' + Math.random();
 
-      if (path.split('/').length>2){
-        $.get('https://gist.githubusercontent.com' + path + '/raw' + bust, function (data) {
-          $('#source').html(data);
-          remark.create(remarkConfig);
-        });
-      } else {
+      $.get('https://gist.githubusercontent.com' + gist + '/raw' + bust, function (data) {
+        $('#source').html(data);
         remark.create(remarkConfig);
-      }
+      });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured"></script>
     <script>
