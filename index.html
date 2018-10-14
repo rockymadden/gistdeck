@@ -148,9 +148,11 @@ https://present.rockymadden.com/rockymadden/8acfc555a718d62b77b2
     </script>
     <script>
       var path = window.location.pathname;
+      var bust = '?bust=' + Math.random();
+
       if (path.split('/').length>2){
-        $.get('https://gist.githubusercontent.com' + path + "/raw", function (data) {
-          $('#source').html(data)
+        $.get('https://gist.githubusercontent.com' + path + '/raw' + bust, function (data) {
+          $('#source').html(data);
           remark.create(remarkConfig);
         });
       } else {
